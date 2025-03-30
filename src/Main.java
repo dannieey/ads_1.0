@@ -11,8 +11,8 @@ public class Main {
     }
 
     public static int powNum(int a, int n){
-        if (n==0) return 1;
-        if(n==1) return a;
+        if (n==0) return 1; //any num to the power 0 equals to 1
+        if(n==1) return a; //any num to the power 1 equals to itself
 
         return a*powNum(a, n-1);
 
