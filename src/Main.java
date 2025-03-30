@@ -6,13 +6,16 @@ public class Main {
         int n=sc.nextInt(); //input n num
         sc.close();//close the scanner
 
-        System.out.print(factorial(n)); //send n to factorial function and print the returned result
+        System.out.print(fib(n)); //send n to fib function and print the returned result
     }
 
-    public static int factorial(int n){ //create factorial function with a sent n value
-        if(n==1 || n==0){ //since factorial of 0 and 1 always equal to 1, do a specific condition for that
-            return 1;
-        }
-        return n*factorial(n-1); //recursion since it will be recall function until it will reach 0
+    public static int fib(int n){
+        if(n==1) return 1; //since fib list starts with 0 1 1 2 3 5 ..., for first two elements there is no pattern, so we create a specific conditions for them
+        if(n==0) return 0;
+
+
+        return fib(n-1)+fib(n-2); //as said in pr5, the nth num in fib list equals to fun(n-1)+fib(n-2)
+
+
     }
 }
