@@ -6,24 +6,13 @@ public class Main {
         int n=sc.nextInt(); //input n num
         sc.close();//close the scanner
 
-        if(isPrime(n)){ //checking the result (true/false) of function isPrime with n
-            System.out.print("Prime");
-        }
-        else{
-            System.out.print("Composite");
-        }
+        System.out.print(factorial(n)); //send n to factorial function and print the returned result
     }
 
-    public static Boolean isPrime(int n){
-        if (n<2){
-            return false;
+    public static int factorial(int n){ //create factorial function with a sent n value
+        if(n==1 || n==0){ //since factorial of 0 and 1 always equal to 1, do a specific condition for that
+            return 1;
         }
-        for(int i=2; i*i<=n; i++){ //starting with i=2 (because of the condition of the prime num divisors) till i*i<=n (because another half interval is repetitive if divisors)
-            if(n%i==0){ //if the num is divided by i that ruins the prime num conditions (because i=2)
-                return false;
-            }
-
-        }
-        return true;
+        return n*factorial(n-1); //recursion since it will be recall function until it will reach 0
     }
 }
