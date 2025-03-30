@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static boolean onlyDigits(String s){
-        for(int i=0; i<s.length(); i++){ //running through the given string
+        for(int i=0; i<s.length(); i++){ //running through the given string //time complexity O(n)
             if(!Character.isDigit(s.charAt(i))){ //checking if the character is not a digit
                 return false; //if any char is not a digit, return a false
             }
