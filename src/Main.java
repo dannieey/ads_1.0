@@ -3,24 +3,27 @@ import java.util.Scanner; //here we import class Scanner from package java.util 
 public class Main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in); //creating object sc to input nums from console
-        int n=sc.nextInt(); //input n value (arr`s size)
-        int[] arr = new int[n]; //creating array with size n (with integers)
-        for(int i=0; i<n; i++){ //running from zero element till the end (n-1) (here they are still empty)
-            arr[i]=sc.nextInt(); //input these values from console (now each has its own value)
-        }
-        System.out.print(findAvg(arr)); //print the result of findAvg function (and we are sending our created array to that function)
+        int n=sc.nextInt(); //input n num
         sc.close();//close the scanner
+
+        if(isPrime(n)){ //checking the result (true/false) of function isPrime with n
+            System.out.print("Prime");
+        }
+        else{
+            System.out.print("Composite");
+        }
     }
 
-    public static double findAvg(int[] arr){
-        if(arr.length==0){ //check if the array is empty
-            throw new IllegalArgumentException("empty array"); //if yes we throw an exception and output "empty array" statement
+    public static Boolean isPrime(int n){
+        if (n<2){
+            return false;
         }
-        int sum=0; //creating variable sum that counts all array`s elements
-        for(int i=0; i<arr.length; i++){
-            sum+=arr[i]; //add each element of the array into sum variable
-        }
-        return (double) sum/arr.length; //return double value(avg) of sum divided by n
+        for(int i=2; i*i<=n; i++){ //starting with i=2 (because of the condition of the prime num divisors) till i*i<=n (because another half interval is repetitive if divisors)
+            if(n%i==0){ //if the num is divided by i that ruins the prime num conditions (because i=2)
+                return false;
+            }
 
+        }
+        return true;
     }
 }
