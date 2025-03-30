@@ -3,18 +3,15 @@ import java.util.Scanner; //here we import class Scanner from package java.util 
 public class Main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in); //creating object sc to input nums from console
-        int n=sc.nextInt(); //input n num
-        int k=sc.nextInt(); //input k num
+        int a=sc.nextInt(); //input a num
+        int b=sc.nextInt(); //input b num
         sc.close();//close the scanner
 
-        System.out.print(binCoeff(n,k)); //send n and k to the function and print the result
+        System.out.print(gcd(a,b)); //send a and b to the function and print the result
     }
 
-    public static int binCoeff(int n, int k){
-        if(k==0 || k==n) return 1; //our exception from the task`s condition
-
-        return binCoeff(n-1,k-1) + binCoeff(n-1, k); //splitting up
-
-
+    public static int gcd(int a, int b){
+        if(b==0) return a; // if b=0 so the gcd = a since 0/a=0 and a/a=1
+        return gcd(b,a%b); //Euclidean Algorithm
     }
 }
